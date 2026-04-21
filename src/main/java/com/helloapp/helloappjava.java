@@ -2,22 +2,11 @@ package com.helloapp;
 
 public class helloappjava {
     public static void main(String[] args) {
-        if (args.length == 0) {
-            System.out.println("Hello, World!");
-        } else {
-            StringBuilder nameBuilder = new StringBuilder();
+        // If args array is empty, default to "World", otherwise join all elements
+        String result = (args.length == 0) ? "World" : String.join(", ", args);
 
-            // Step 1: Append every name followed by a delimiter
-            for (String name : args) {
-                nameBuilder.append(name).append(", ");
-            }
-
-            // Step 2: Clean up the trailing delimiter (", ")
-            // We take a substring from index 0 to (length - 2)
-            String finalNames = nameBuilder.substring(0, nameBuilder.length() - 2);
-
-            System.out.println("Hello, " + finalNames + "!");
-        }
+        // Print the final formatted greeting
+        System.out.println("Hello, " + result + "!");
     }
 }
 
