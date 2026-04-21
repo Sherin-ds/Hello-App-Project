@@ -2,14 +2,17 @@ package com.helloapp;
 
 public class helloappjava {
     public static void main(String[] args) {
-        // Check if at least one argument is provided to avoid ArrayIndexOutOfBoundsException
+        String finalNames;
+
         if (args.length > 0) {
-            // Access the first argument using index 0
-            String name = args[0];
-            System.out.println("Hello, " + name + "!");
+            // Using String.join to combine all array elements with a comma and space
+            finalNames = String.join(", ", args);
         } else {
-            // Fallback to default if no argument is passed
-            System.out.println("Hello, World!");
+            // Fallback if no arguments are provided
+            finalNames = "World";
         }
+
+        // Output the concatenated greeting
+        System.out.println("Hello, " + finalNames + "!");
     }
 }
