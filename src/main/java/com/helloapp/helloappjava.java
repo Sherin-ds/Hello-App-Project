@@ -2,17 +2,22 @@ package com.helloapp;
 
 public class helloappjava {
     public static void main(String[] args) {
-        String finalNames;
-
-        if (args.length > 0) {
-            // Using String.join to combine all array elements with a comma and space
-            finalNames = String.join(", ", args);
+        if (args.length == 0) {
+            System.out.println("Hello, World!");
         } else {
-            // Fallback if no arguments are provided
-            finalNames = "World";
-        }
+            StringBuilder namesList = new StringBuilder();
 
-        // Output the concatenated greeting
-        System.out.println("Hello, " + finalNames + "!");
+            // Enhanced for-loop (for-each) to iterate through arguments
+            for (String name : args) {
+                // If StringBuilder is not empty, append a comma and space before the next name
+                if (namesList.length() > 0) {
+                    namesList.append(", ");
+                }
+                namesList.append(name);
+            }
+
+            System.out.println("Hello, " + namesList.toString() + "!");
+        }
     }
 }
+
