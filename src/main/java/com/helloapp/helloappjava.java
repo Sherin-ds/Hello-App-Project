@@ -5,19 +5,20 @@ public class helloappjava {
         if (args.length == 0) {
             System.out.println("Hello, World!");
         } else {
-            StringBuilder namesList = new StringBuilder();
+            StringBuilder nameBuilder = new StringBuilder();
 
-            // Enhanced for-loop (for-each) to iterate through arguments
+            // Step 1: Append every name followed by a delimiter
             for (String name : args) {
-                // If StringBuilder is not empty, append a comma and space before the next name
-                if (namesList.length() > 0) {
-                    namesList.append(", ");
-                }
-                namesList.append(name);
+                nameBuilder.append(name).append(", ");
             }
 
-            System.out.println("Hello, " + namesList.toString() + "!");
+            // Step 2: Clean up the trailing delimiter (", ")
+            // We take a substring from index 0 to (length - 2)
+            String finalNames = nameBuilder.substring(0, nameBuilder.length() - 2);
+
+            System.out.println("Hello, " + finalNames + "!");
         }
     }
 }
+
 
